@@ -1,17 +1,19 @@
 public class Employee {
     private static int counter = 0;
+    private static Integer id;
     private String name;
     private String lastName;
     private String middleName;
-    private int salary;
-    private static Integer id;
     private int department;
+    private int salary;
 
-    public Employee(String name, String lastName, String middleName, int department, int salary) {
+    public Employee(String name, String middleName, String lastName, int department, int salary) {
         this.name = name;
-        this.salary = salary;
+        this.lastName = lastName;
+        this.middleName = middleName;
         this.department = department;
-        this.id = counter;
+        this.salary = salary;
+        this.id = counter++;
     }
 
     public String getName() {
@@ -30,17 +32,24 @@ public class Employee {
         return department;
     }
 
-    public static int getId() {
-        return id;
+    public Integer getId() {
+        return this.id;
     }
 
-    public int getSalary() { return salary;}
+    public int getSalary() {return salary;}
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
+    public void setSalary(int salary) {this.salary = salary;}
+
     @Override
-    public String  toString(){
-        return Employee
+    public String toString() {
+        return "Employee{" +
+                "Id='" + id + '\'' +
+                "Имя'" + name + '\'' +
+                "Фамилия='" + lastName + '\'' +
+                "Отчество='" + middleName + '\'' +
+                "Отдел='" + department +
+                "Зарплата='" + salary + '\'' +
+                '}';
+
     }
 }
