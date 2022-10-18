@@ -5,16 +5,10 @@ public class Main {
     public static Employee[] employees = new Employee[10];
 
     public static void main(String[] args) {
-        Employee e1 = new Employee("Ivan", "Ivanovich", "Ivanov", 1, 55000);
-        Employee e2 = new Employee("Petr", "Petrovich", "Petrov", 1, 45000);
-        Employee e3 = new Employee("Anton", "Antonovich", "Antonov", 1, 135000);
-        Employee e4 = new Employee("Vasiliy", "Vasilevich", "Vasilev", 1, 47000);
-        employees[0] = e1;
-        employees[1] = e2;
-        employees[2] = e3;
-        employees[3] = e4;
-        Employee[] emp = Arrays.copyOf(employees, 10);
-        Arrays.stream(emp).forEach(System.out::println);
+        employees[0] = new Employee("Ivan", "Ivanovich", "Ivanov", 1, 55000);
+        employees[1] = new Employee("Petr", "Petrovich", "Petrov", 1, 45000);
+        employees[2] = new Employee("Anton", "Antonovich", "Antonov", 1, 135000);
+        employees[3] = new Employee("Vasiliy", "Vasilevich", "Vasilev", 1, 47000);
 
         printEmployee();
         System.out.println("Сумма всех зарплат - " + calcTotalSalary());
@@ -26,10 +20,12 @@ public class Main {
 
     public static void printEmployee() {
         for (Employee employee : employees) {
-            calcTotalSalary();
+            if (employee != null) {
+                System.out.println(employee.toString());
+
+            }
         }
     }
-
     public static int calcTotalSalary() {
         int sum = 0;
         for (Employee employee : employees) {
